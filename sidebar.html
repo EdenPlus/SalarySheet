@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+    <!-- The CSS package above applies Google styling to buttons and other elements. -->
+
+    <style>
+    .branding-below {
+      bottom: 56px;
+      top: 0;
+    }
+
+    .branding-text {
+      left: 7px;
+      position: relative;
+      top: 3px;
+    }
+
+    .col-contain {
+      overflow: hidden;
+    }
+
+    .col-one {
+      float: left;
+      width: 50%;
+    }
+
+    .logo {
+      vertical-align: middle;
+    }
+
+    .radio-spacer {
+      height: 20px;
+    }
+
+    .width-100 {
+      width: 100%;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <form>
+        <div class="block form-group">
+          <b>Use this to calculate taxes:</b><br>
+          <a href="http://www.calculators.org/savings/wage-conversion.php#advanced">Wage Calculator</a>
+        </div>
+        
+        <div class="block form-group">
+          <label for="text-hours"><b>Regular Hours Worked:</b></label>
+          <input type="text" class="width-100" name="hours" id="text-hours" value="40" min="1" required>
+        </div>
+        
+        <div class="block form-group">
+          <label for="number-gNum"><b>Gross Pay:</b></label>
+          <input type="number" class="width-100" name="gNum" id="number-gNum" value="625.20" min="0.01" step="0.01" required>
+        </div>
+        
+        <div class="block form-group">
+          <label for="number-tNum"><b>Net Pay:</b></label>
+          <input type="number" class="width-100" name="tNum" id="number-tNum" value="480.33" min="0.01" step="0.01" required>
+        </div>
+        
+        <div class="block form-group">
+          <b>Pay Period:</b><br>
+          <input type="radio" name="gross" id="radio-gross-gWeek" value="gWeek" checked="checked"><label for="radio-gross-gWeek">Weekly</label><br>
+          <input type="radio" name="gross" id="radio-gross-gMonth" value="gMonth"><label for="radio-gross-gMonth">Monthly</label><br>
+          <input type="radio" name="gross" id="radio-gross-gYear" value="gYear"><label for="radio-gross-gYear">Annually</label>
+        </div>
+        
+        <div class="block" id="button-bar">
+          <button class="blue" id="setupTable">Start</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+      $(function() {
+        $('#setupTable').click(runTableSetup);
+      }); 
+      
+      function runTableSetup() {
+        this.disabled = true;
+        var hours = $('input[name=hours]').val();
+        var gNum = $('input[name=gNum]').val();
+        var tNum = $('input[name=tNum]').val();
+        var gross = $('input[name=gross]:checked').val();
+        google.script.run.buildTable(hours, gNum, tNum, gross);
+        google.script.host.close();
+        this.disabled = false;
+      }
+    </script>
+  </body>
+</html>
