@@ -15,8 +15,8 @@ Add-on for Google Spreadsheets
 12. Click the link at the top of the sidebar
 13. In the new tab, use your human intution to figure out that app
 14. Go back to your Spreadsheet and in the sidebar put in the data from the other tab (The following is to help you decide what goes where, the format is: Data on calculator -> Location on sidebar):
-  Hours -> Regular Hours Worked
-  Gross Paycheck -> Gross Pay
-  Net Paycheck -> Net Pay
-  Pay Period -> Pay Period
+⋅⋅1. Hours -> Regular Hours Worked
+⋅⋅2. Gross Paycheck -> Gross Pay
+⋅⋅3. Net Paycheck -> Net Pay
+⋅⋅4. Pay Period -> Pay Period
 15. Now click "Start" and the table should be formulated
